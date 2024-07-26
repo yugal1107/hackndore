@@ -172,41 +172,41 @@ const Login = () => {
 
 export default Login;
 
-// const handleSubmit = (e) => {
-//   const auth = getAuth(app);
-//   signInWithEmailAndPassword(auth, email, password)
-//     .then((userCredential) => {
-//       // Signed in
-//       const user = userCredential.user;
-//       navigate("/");
-//       console.log("Signed in");
-//       console.log(user);
-//       // ...
-//     })
-//     .catch((error) => {
-//       const errorCode = error.code;
-//       const errorMessage = error.message;
-//       setError(errorMessage);
-//     });
-// };
+const handleSubmit = (e) => {
+  const auth = getAuth(app);
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      navigate("/");
+      console.log("Signed in");
+      console.log(user);
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      setError(errorMessage);
+    });
+};
 
-// <div className="flex flex-col justify-end items-center">
-//   <h2 className="font-bold">Sign In</h2>
-//   <form onSubmit={handleSubmit}>
-//     <div>
-//       <label>Email:</label>
-//       <input type="email" value={email} onChange={handleEmailChange} />
-//     </div>
-//     <div>
-//       <label>Password:</label>
-//       <input
-//         type="password"
-//         value={password}
-//         onChange={handlePasswordChange}
-//       />
-//     </div>
-//     <button onClick={handleSubmit}>Sign In</button>
-//     <button onClick={handleGoogleSignIn}></button>
-//     {error && <p>{error}</p>}
-//   </form>
-// </div>
+<div className="flex flex-col justify-end items-center">
+  <h2 className="font-bold">Sign In</h2>
+  <form onSubmit={handleSubmit}>
+    <div>
+      <label>Email:</label>
+      <input type="email" value={email} onChange={handleEmailChange} />
+    </div>
+    <div>
+      <label>Password:</label>
+      <input
+        type="password"
+        value={password}
+        onChange={handlePasswordChange}
+      />
+    </div>
+    <button onClick={handleSubmit}>Sign In</button>
+    <button onClick={handleGoogleSignIn}></button>
+    {error && <p>{error}</p>}
+  </form>
+</div>
